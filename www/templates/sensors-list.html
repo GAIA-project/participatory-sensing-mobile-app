@@ -1,0 +1,19 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="{{chat.name}}">
+  <ion-content class="padding" ng-init="getSiteResources()">
+      <ion-refresher pulling-text="Pull to refresh" on-refresh="getSiteResources()"></ion-refresher>
+          <div class="error_div" ng-show="error">{{error_text}}</div>
+          <div class="error_div" ng-show="virtual_sensors.length<1">There are no virtual sensors</div>
+          <ion-list ng-hide="error">
+            <div class="item" ng-repeat="sensor in virtual_sensors">
+            <a href="#/sensor/{{sensor.resourceId}}" class="button-light">{{sensor.name}}</span>
+            </div>
+          </ion-list>
+    
+  </ion-content>
+</ion-view>

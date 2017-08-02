@@ -1,0 +1,15 @@
+<ion-view view-title="Dashboard">
+  <ion-content class="padding">
+    
+     <div class="error_div">{{error_text}}<br/>{{err|json}}<br/>{{err}}</div>
+         
+          <ion-list>
+            <div class="item"  ng-repeat="site in abuildings">
+            	<a href="#/tab/chats/{{site.id}}" class="button-light">{{site.name}}</span>
+            </div>
+          </ion-list>
+
+
+             
+  </ion-content>
+</ion-view>

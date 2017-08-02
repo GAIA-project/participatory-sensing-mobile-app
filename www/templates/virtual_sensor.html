@@ -1,0 +1,31 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="{{sensor.name+'-('+sensor.uom+')'}}">
+  <ion-content class="padding">
+  
+        
+       <div class="error_div" ng-show="error">{{error_text}}</div>
+       <div class="loadingarea"  ng-show="loading">
+        <ion-spinner icon="android" class="loading_icon"></ion-spinner>
+       </div>
+
+       	<div ng-hide="loading || settings.autogathering">
+			     <label class="item item-input" ng-hide="loading">
+	         <input type="text" ng-model="tvalue.val" placeholder="Value"> </label>
+        </div>
+
+     	<button class="button button-primary" ng-click="postmeasurement()" ng-hide="settings.autogathering" style="float: right;margin: 10px">SAVE</button>
+
+     	<div ng-show="is_lum">
+        <h4 class="auto_value" ng-show="settings.autogathering">{{lum_measurement+" lux"}} </h4>
+       	<ion-toggle ng-model="settings.autogathering" class="auto_gathering" ng-change="switchAutoGathering()">
+          	Auto Gathering
+        </ion-toggle>   
+      </div>  
+    
+  </ion-content>
+</ion-view>

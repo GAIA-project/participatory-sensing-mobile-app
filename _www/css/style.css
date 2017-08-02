@@ -1,0 +1,26 @@
+/* Empty. Add your own CSS if you like */
+.current_metric{
+    top: 95px;
+    font-size: 50px;
+    position: relative;
+    padding: 0 21px;
+    
+}
+.measurement{
+     font-weight: 300;
+}
+.monada_metrisis{
+	font-weight: 100;
+}
+.simple_text_below{
+	font-weight: 300;
+	font-size:16px;
+}
+
+.internal_box {
+    background: #009cc8;
+    text-align: center;
+    color: white;
+    padding: 25px 10px;
+    font-weight: 300;
+}

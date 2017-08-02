@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.ionicframework.customsass138831" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <access origin="*" />
+    <name>ionic-slate</name>
+    <description>
+        A custom theme ionic app 
+    </description>
+    <author email="you@example.com" href="http://example.com.com/">
+      Joseph Livecchi
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="android-minSdkVersion" value="16" />
+    <preference name="BackupWebStorage" value="none" />
+    <feature name="StatusBar">
+        <param name="ios-package" onload="true" value="CDVStatusBar" />
+    </feature>
+    <engine name="android" spec="^6.2.3" />
+    <plugin name="cordova-plugin-device-motion" spec="^1.2.5" />
+    <plugin name="cordova-plugin-lightsensor" spec="git+https://github.com/DeshanKTD/cordova-plugin-lightsensor.git" />
+    <plugin name="cordova-plugin-whitelist" spec="git+https://github.com/apache/cordova-plugin-whitelist.git" />
+    <plugin name="cordova-sqlite-plugin" spec="^3.1.1" />
+</widget>

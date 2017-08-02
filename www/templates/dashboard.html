@@ -1,0 +1,14 @@
+<ion-view view-title="Dashboard">
+  <ion-content class="padding" ng-init="getBuildings()">
+      <ion-refresher pulling-text="Pull to refresh" on-refresh="getBuildings()"></ion-refresher>
+     <div class="error_div" ng-show="error">{{error_text}}</div>
+          <ion-list>
+            <div class="item"  ng-repeat="site in abuildings">
+            	<a href="#/site/{{site.id}}" class="button-light">{{site.name}}</span>
+            </div>
+          </ion-list>
+
+
+             
+  </ion-content>
+</ion-view>

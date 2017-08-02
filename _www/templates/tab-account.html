@@ -1,0 +1,75 @@
+<ion-view view-title="Account">
+  <ion-content>
+    <ion-list>
+    <!-- <ion-toggle  ng-model="settings.enableFriends">
+        Enable Friends
+    </ion-toggle> -->
+
+
+	
+	<div class="row">
+		
+	  <div class="col col-50">
+	  	<div class="internal_box" ng-click="openModal('luminosity')">Calibrate Luminosity Sensor</div>
+	  </div>
+	  <div class="col col-50">
+	  	<div class="internal_box">Calibrate Luminosity Sensor</div>
+	  </div>
+	</div>
+
+    </ion-list>
+
+
+  
+
+
+<script id="calibrate_luminosity.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar>
+      <h1 class="title">Calibrate Luminosity</h1>
+    </ion-header-bar>
+    <ion-content>
+    	
+    	Please set the multiplier value:
+    
+      	<div class="item range" style="border:none!important">	  
+		  <i class="icon ion-ios-lightbulb-outline"></i>
+		  <input type="range" name="volume" ng-model="settings.calibration_value" ng-change="multiplier_change()">
+		  <i class="ion-android-bulb" style="font-size: 29px;"></i>
+		</div>
+
+
+
+		 <div class="row header">
+          <div class="col">Before</div>
+          <div class="col">{{current_lux_metric}} lux</div>
+        </div>
+        <div class="row header">
+          <div class="col">After</div>
+          <div class="col">{{new_metric}} lux</div>
+        </div>
+        <div class="row header">
+          <div class="col">Multiplier</div>
+          <div class="col">{{multiplier}}</div>
+        </div>
+       
+
+
+       <div class="bar bar-footer">
+  			<button class="button icon-left ion-chevron-left button-clear button-dark" ng-click="closeModal('luminosity')">Cancel</button>
+  			<button class="button button-large button-positive" ng-click="saveCalibrationLuminosity()">Save</button>
+		</div>
+
+	
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+
+
+  </ion-content>
+
+
+
+
+</ion-view>
