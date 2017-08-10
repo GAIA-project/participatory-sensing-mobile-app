@@ -44,12 +44,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       templateUrl: 'templates/sensors-list.html',
       controller: 'SiteCtrl'
   })
+  .state('login', {
+      url: '/login',
+      templateUrl: 'templates/login.html',
+      controller: 'LoginCtrl'
+  })
   .state('sensor', {
       url: '/sensor/:sensor_id',
       templateUrl: 'templates/virtual_sensor.html',
       controller: 'SensorCtrl'
   });
   
-  $urlRouterProvider.otherwise('/dashboard');
+  $urlRouterProvider.otherwise('/login');
 
 });

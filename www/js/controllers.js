@@ -1,17 +1,49 @@
 angular.module('starter.controllers', ['ngCordova'])
+.controller('LoginCtrl',function($scope,$http,$rootScope,$state){
+ 
 
-.controller('DashboardCtrl',function($scope,$rootScope,$http,buildings,$rootScope,$interval,$window,$ionicPlatform) {
   $rootScope.auth_token = '7b5b648e-826a-4f0d-9736-9339bcfe4cb8';
   $rootScope.lum_measurement = 0;
+  $scope.data = {};
+
+  $scope.authenticate= function(){
+
+            $scope.login_error = 0;
+            if($scope.data.username!='' && $scope.data.password!=''){
+
+              var aut = $http({
+                    url: 'https://sso.sparkworks.net/aa/oauth/token?client_id=buildingmanager&client_secret=634c1f75-71d9-4362-8e7f-91b643722362&grant_type=password&username='+$scope.data.username+'&password='+$scope.data.password,
+                    method: 'POST',
+                    headers: {}
+                });
+                
+                aut.then(function(auth) {
+                    console.log(auth.data.access_token);
+                    $rootScope.auth_token = auth.data.access_token;                
+                    $state.go('dashboard');
+
+                }, function(err) {
+                  console.log("ERORRRR");
+                    $scope.error = 1;
+                    $scope.error_text = "Please check your credentials";
+                }); 
+            }
+
+        }
+
+})
+.controller('DashboardCtrl',function($scope,$rootScope,$http,buildings,$rootScope,$interval,$window,$ionicPlatform) {
+  
+  
    
   $scope.getBuildings = function(){
+
      var m = buildings.getSites();
             m.then(function(bs){
                
                 $scope.abuildings = [];
                 bs.data.sites.forEach(function(ssite,index){
-                    if(ssite.master){                    
-                        console.log(ssite);
+                    if(ssite.master){      
                         $scope.abuildings.push(ssite);
                     }
                 });
@@ -20,8 +52,10 @@ angular.module('starter.controllers', ['ngCordova'])
             }).catch(function(error){
                 
                 $scope.error = 1;
+
                 $scope.error_text = "Currently there is an error with the database connection. Please try it later";
                 $scope.error_msg = error;
+                $state.go('login');
                 $scope.$broadcast('scroll.refreshComplete');
                 $scope.$apply();
             });

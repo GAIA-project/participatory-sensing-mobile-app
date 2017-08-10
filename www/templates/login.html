@@ -1,0 +1,17 @@
+<ion-view>
+  <ion-content class="padding">
+   	
+   	<img src="http://bms.gaia-project.eu/images/logo.png" style="width: 80%;position: relative;left: 50%;margin-left: -40%" />
+    
+    <div class="error_div" ng-show="error" style="margin: 10px 0px;text-align: center;color: #f2a1a1;">{{error_text}}</div>
+      <div class="list list-inset">
+          <label class="item item-input">
+              <input type="text" placeholder="Username" ng-model="data.username">
+          </label>
+          <label class="item item-input">
+              <input type="password" placeholder="Password" ng-model="data.password">
+          </label>
+      </div>
+      <button class="button button-block" style="background-color: #98b13a;color: black;" ng-click="authenticate()">Login</button>
+  </ion-content>
+</ion-view>
